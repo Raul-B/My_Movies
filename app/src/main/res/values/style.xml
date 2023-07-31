@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="localTextViewStyle" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textSize">30sp</item>
-        <item name="android:background">#88FF4322</item>
+        <!--item name="android:textSize">30sp</item>
+        <item name="android:background">#88FF4322</item-->
     </style>
 </resources>

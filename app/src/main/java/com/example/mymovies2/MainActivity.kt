@@ -1,11 +1,15 @@
 package com.example.mymovies2
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.mymovies2.databinding.ActivityMainBinding
+import com.example.mymovies2.model.Movie
 import com.example.mymovies2.model.MovieDBClient
-import kotlin.concurrent.thread
+import kotlinx.coroutines.launch
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,24 +28,26 @@ class MainActivity : AppCompatActivity() {
                 Movie("Title 6", "https://loremflickr.com/320/240?lock=6")
             )*/
         ) {
-            Toast.makeText(this@MainActivity, it.title, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this@MainActivity, it.title, Toast.LENGTH_SHORT).show()
+            navigateTo(it)
         }
 
         binding.recycler.adapter = moviesAdapter
 
-        thread {
+        lifecycleScope.launch {
             val apiKey = getString(R.string.api_key)
             val popularMovies = MovieDBClient.service.listPopularMovies(apiKey)
-            val body = popularMovies.execute().body()
 
-            runOnUiThread {
-                if (body != null)
-                    moviesAdapter.movies = body.results
-                    moviesAdapter.notifyDataSetChanged()
-                    //Log.d("MainActivity", "Movie count: ${body.results.size}")
-            }
-
+            moviesAdapter.movies = popularMovies.results
+            moviesAdapter.notifyDataSetChanged()
+            Log.d("MainActivity", "Movie count: ${popularMovies.results.size}")
         }
 
+    }
+
+    private fun navigateTo(movie: Movie) {
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra(DetailActivity.EXTRA_MOVIE, movie)
+        startActivity(intent)
     }
 }

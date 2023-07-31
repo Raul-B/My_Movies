@@ -10,8 +10,8 @@
     </style>
 
     <style name="textViewStyle" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textSize">36sp</item>
-        <item name="android:background">#E3DB8A</item>
+        <!--item name="android:textSize">36sp</item>
+        <item name="android:background">#E3DB8A</item-->
     </style>
 
 </resources>
