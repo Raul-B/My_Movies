@@ -1,7 +1,6 @@
-package com.example.mymovies2
+package com.example.mymovies2.ui.main
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide

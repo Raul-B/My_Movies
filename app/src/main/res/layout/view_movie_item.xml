@@ -9,11 +9,12 @@
     android:padding="2dp"
     app:layout_anchorGravity="center">
 
-    <ImageView
+    <com.example.mymovies2.ui.common.AspectRatioImageView
         android:id="@+id/cover"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:scaleType="centerCrop"
+        app:ratio="1.5"
         app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
