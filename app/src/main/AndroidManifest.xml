@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -27,7 +29,9 @@
         <activity
             android:name=".ui.detail.DetailActivity"
             android:exported="false"
-            android:parentActivityName=".ui.main.MainActivity"/>
+            android:parentActivityName=".ui.main.MainActivity"
+
+            android:theme="@style/Base.Theme.MyMovies2.NoActionBar"/>
 
     </application>
 
