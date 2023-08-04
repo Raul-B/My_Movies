@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.text.SpannableStringBuilder
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.text.bold
 import androidx.core.text.buildSpannedString
@@ -38,6 +39,9 @@ class DetailActivity : AppCompatActivity() {
                 .into(binding.backDrop)
             binDetailInfo(binding.detailInfo, movie)
 
+            binding.fab.setOnClickListener{
+                Toast.makeText(this, title, Toast.LENGTH_SHORT).show()
+            }
         }
 
     }
